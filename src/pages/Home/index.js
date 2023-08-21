@@ -1,7 +1,9 @@
+
 import Menu from "../../containers/Menu";
 import ServiceCard from "../../components/ServiceCard";
 import EventCard from "../../components/EventCard";
 import PeopleCard from "../../components/PeopleCard";
+
 
 import "./style.scss";
 import EventList from "../../containers/Events";
@@ -12,8 +14,18 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+
 const Page = () => {
-  const {last} = useData()
+
+  const { data } = useData();
+
+  const lastProjectCopy = data?.events.slice();
+
+  const sortedProject = lastProjectCopy?.sort((EventA, EventB) => 
+  new Date(EventB.date) - new Date(EventA.date));
+
+  const lastProject = sortedProject?.[0];
+
   return <>
     <header>
       <Menu />
@@ -96,7 +108,7 @@ const Page = () => {
         <Modal
           Content={
             <div className="ModalMessage--success">
-              <div>Message envoyé !</div>
+              <h3>Message envoyé !</h3>
               <p>
                 Merci pour votre message nous tâcherons de vous répondre dans
                 les plus brefs délais
@@ -115,14 +127,17 @@ const Page = () => {
     </main>
     <footer className="row">
       <div className="col presta">
-        <h3>Notre derniére prestation</h3>
+      {lastProject ? (
         <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
+          imageSrc={lastProject.cover}
+          title={lastProject.title}
+          date={new Date(lastProject.date)}
           small
           label="boom"
         />
+      ) : (
+      <p>Pas de projet récent disponible</p>
+    )}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
