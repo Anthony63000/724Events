@@ -34,7 +34,7 @@ const Page = () => {
       <section className="SliderContainer">
         <Slider />
       </section>
-      <section className="ServicesContainer">
+      <section id="nos-services" className="ServicesContainer">
         <h2 className="Title">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
@@ -63,11 +63,11 @@ const Page = () => {
           </ServiceCard>
         </div>
       </section>
-      <section className="EventsContainer">
+      <section id="nos-realisations" className="EventsContainer">
         <h2 className="Title">Nos réalisations</h2>
         <EventList />
       </section>
-      <section className="PeoplesContainer">
+      <section id="notre-equipe" data-testid="PeoplesContainerTest" className="PeoplesContainer">
         <h2 className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
@@ -108,7 +108,7 @@ const Page = () => {
         <Modal
           Content={
             <div className="ModalMessage--success">
-              <h3>Message envoyé !</h3>
+              <div>Message envoyé !</div>
               <p>
                 Merci pour votre message nous tâcherons de vous répondre dans
                 les plus brefs délais
@@ -145,16 +145,16 @@ const Page = () => {
         <div>01 23 45 67 89</div>
         <div>contact@77events.com</div>
         <div>
-          <a href="#twitch">
+          <a data-testid="linkTest" href="#twitch">
             <Icon name="twitch" />
           </a>
-          <a href="#facebook">
+          <a data-testid="linkTest" href="#facebook">
             <Icon name="facebook" />
           </a>
-          <a href="#twitter">
+          <a data-testid="linkTest" href="#twitter">
             <Icon name="twitter" />
           </a>
-          <a href="#youtube">
+          <a data-testid="linkTest" href="#youtube">
             <Icon name="youtube" />
           </a>
         </div>
