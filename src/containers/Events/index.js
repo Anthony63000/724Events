@@ -19,7 +19,6 @@ const EventList = () => {
       : data?.events) || []
   ).filter((event) => {
     if (
-      (currentPage) &&
       (!type || type === event.type)
     ) {
       return true;
